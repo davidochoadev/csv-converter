@@ -5,8 +5,10 @@ use Illuminate\Support\Facades\Session;
 
 use function Livewire\Volt\form;
 use function Livewire\Volt\layout;
+use function Livewire\Volt\title;
 
 layout('layouts.guest');
+title('Login');
 
 form(LoginForm::class);
 
