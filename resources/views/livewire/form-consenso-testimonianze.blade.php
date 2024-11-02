@@ -17,7 +17,7 @@ new class extends Component {
 
     public function mount()
     {
-        $this->start_date = session()->get('start_date', now()->format('d-m-Y H:i:s'));
+        $this->start_date = session()->get('start_date', now()->format('d-m-Y H:i:s', 'Europe/Rome'));
         $this->step = session()->get('currentstep', 1);
         $this->dati_personali = session()->get('dati_personali', []);
         $this->nome = $this->dati_personali['nome'] ?? '';
@@ -126,7 +126,7 @@ new class extends Component {
 
     public function invia()
     {
-        $submit_date = now()->format('d-m-Y H:i:s');
+        $submit_date = now()->format('d-m-Y H:i:s', 'Europe/Rome');
         $form_token = Str::random(32);
         $this->validate([
             'scelta_consenso_3' => 'required',
