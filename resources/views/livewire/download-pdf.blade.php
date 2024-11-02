@@ -11,6 +11,7 @@ new class extends Component {
         $this->type_form_token = session()->get('type_form_token');
         $feedbackUser = FeedbackUser::where('type_form', $this->type_form_token)->first();
         if (!$feedbackUser) {
+            session()->forget(['type_form_token', 'form_status']);
             return redirect('/consenso-testimonianze');
         }
         $feedbackUserArray = $feedbackUser->toArray();
@@ -24,6 +25,7 @@ new class extends Component {
         $this->type_form_token = session()->get('type_form_token');
         $feedbackUser = FeedbackUser::where('type_form', $this->type_form_token)->first();
         if (!$feedbackUser) {
+            session()->forget(['type_form_token', 'form_status']);
             return redirect('/consenso-testimonianze');
         }
         $feedbackUser->delete();
