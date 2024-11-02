@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8">
             <!-- Tabella per visualizzare i dati caricati -->
             <livewire:feedback-user-list />
         </div>

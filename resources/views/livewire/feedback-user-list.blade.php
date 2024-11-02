@@ -32,29 +32,29 @@ new class extends Component {
 }; ?>
 
 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg border border-slate-300 my-4 overflow-x-auto">
-    <div class="p-6 text-gray-900">
-        <table class="min-w-full divide-y divide-gray-200">
+    <div class="p-0 lg:p-6 text-gray-900">
+        <table class="min-w-full divide-y divide-gray-200 table-auto">
             <thead class="bg-gray-50">
                 <tr>
                     <th scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        class="px-3 lg:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         ID
                     </th>
                     <th scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        First name
+                        class="px-3 lg:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Nome
                     </th>
                     <th scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Last name
+                        class="px-3 lg:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                        Cognome
                     </th>
                     <th scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Phone number
+                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider hidden md:table-cell">
+                        Numero di telefono
                     </th>
                     <th scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Submit date
+                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider hidden md:table-cell">
+                        Data di invio
                     </th>
                     <th>
                     </th>
@@ -63,29 +63,29 @@ new class extends Component {
             <tbody class="bg-white divide-y divide-gray-200 text-xs" x-data="{ open: false }">
                 @foreach ($feedbackUsers as $feedbackUser)
                     <tr>
-                        <td class="px-6 py-3 whitespace-nowrap">
+                        <td class="px-3 lg:px-6 py-3 whitespace-nowrap">
                             {{ $feedbackUser->id }}
                         </td>
-                        <td class="px-6 py-3 whitespace-nowrap">
+                        <td class="px-3 lg:px-6 py-3 whitespace-nowrap">
                             {{ $feedbackUser->first_name }}
                         </td>
-                        <td class="px-6 py-3 whitespace-nowrap">
+                        <td class="px-3 lg:px-6 py-3 whitespace-nowrap">
                             {{ $feedbackUser->last_name }}
                         </td>
-                        <td class="px-6 py-3 whitespace-nowrap">
+                        <td class="px-6 py-3 whitespace-nowrap hidden md:table-cell">
                             {{ $feedbackUser->phone_number }}
                         </td>
-                        <td class="px-6 py-3 whitespace-nowrap">
-                            {{ $feedbackUser->submit_date }}
+                        <td class="px-6 py-3 whitespace-nowrap hidden md:table-cell">
+                            {{ \Carbon\Carbon::parse($feedbackUser->submit_date)->timezone('Europe/Rome')->format('d-m-Y H:i:s') }}
                         </td>
-                        <td class="px-6 py-3 whitespace-nowrap flex flex-row gap-2">
+                        <td class="px-6 py-3 whitespace-nowrap flex flex-row gap-2 ">
                             <button @click="open = true" class="bg-slate-100 border border-slate-300 rounded-lg p-2 text-slate-500 hover:bg-slate-200 hover:border-slate-400 hover:text-slate-600 transition-all duration-300">
                                 <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5h8m-8 4h5m-5 6h8m-8 4h5M3 5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1zm0 10a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/></svg>
                             </button>
 
                             <!-- Pop-up -->
-                            <div x-show="open" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full" x-cloak>
-                                <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+                            <div x-show="open" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex justify-center items-center" x-cloak>
+                                <div class="mx-4 p-3 md:p-5 border w-96 shadow-lg rounded-md bg-white">
                                     <div class="mt-3 text-center">
                                         <h3 class="text-lg leading-6 font-medium text-gray-900">Dettagli Utente</h3>
                                         <div class="mt-2 px-7 py-3">
