@@ -101,7 +101,7 @@
         </div>
     </div>
     <div class="container" style="width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
-        <p style="text-align:left; font-weight: bold;">Data e ora di invio: {{ date('d-m-Y H:i:s', strtotime($submit_date)) }}</p>
+        <p style="text-align:left; font-weight: bold;">Data e ora di invio: {{ \Carbon\Carbon::parse($submit_date)->timezone('Europe/Rome')->format('d-m-Y H:i:s') }}</p>
         <p style="text-align:left; font-size: 0.8rem;">Per qualsiasi dubbio o esigenza in riferimento a questo modulo, invito il/la cliente a contattarmi privatamente. Idem in caso vi sia un eventuale cambio di idea rispetto la pubblicazione dei riscontri e le precedenti attestazioni qui presenti. Lascio di seguito i miei contatti principali.</p>
         <p style="text-align:left; font-weight: bold;">Cellulare:
             <span style="font-weight: normal;">+39 351 3054419</span>
