@@ -16,13 +16,13 @@
     </head>
     <body class="antialiased font-sans bg-[#f1ece2]">
         @if(session()->has('form_status'))
-            <section class="h-screen w-full flex flex-col justify-center items-center gap-4">
-                <h1 class="text-4xl font-bold text-slate-600">Grazie per aver compilato il modulo! 🥳🎉</h1>
+            <section class="h-screen w-full flex flex-col justify-center items-center gap-4 px-4">
+                <h1 class="text-3xl lg:text-4xl font-bold text-slate-600 text-center">Grazie per aver compilato il modulo! 🥳🎉</h1>
                 @livewire('download-pdf')
             </section>
         @else
-            <section class="h-screen w-full flex flex-col justify-center items-center gap-4">
-                <h1 class="text-4xl font-bold text-slate-600">Consenso alla Pubblicazione dei Riscontri e delle Testimonianze</h1>
+            <section class="h-screen w-full flex flex-col justify-center items-center gap-2 lg:gap-4 px-4">
+                <h1 class="text-3xl lg:text-4xl font-bold text-slate-600 text-center">Consenso alla Pubblicazione dei Riscontri e delle Testimonianze</h1>
                 <p class="text-slate-600 text-center mt-4">
                     Vorremmo condividere la tua esperienza per aiutare altri clienti a conoscere meglio i nostri servizi.<br>
                     Ti chiediamo il permesso di utilizzare in modo anonimo alcuni riscontri o testimonianze che ci hai fornito.<br>

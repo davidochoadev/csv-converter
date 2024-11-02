@@ -168,7 +168,7 @@ new class extends Component {
 
 <form wire:submit.prevent="invia">
     @csrf
-    <div class="max-w-2xl mx-auto">
+    <div class="max-w-2xl mx-auto px-4">
         <!-- Step 1 -->
         <section x-show="$wire.step === 1" class="flex flex-col gap-4">
             <!-- TITOLO -->

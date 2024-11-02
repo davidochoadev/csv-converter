@@ -5,6 +5,7 @@ use App\Http\Controllers\CsvController;
 use App\Http\Controllers\HomeController;
 
 Route::get('/', [HomeController::class, 'home']);
+Route::view('/preview', 'pdf.feedback-user');
 Route::get('/download-pdf', function () {
     if (session()->has('pdf_content') && session()->has('pdf_filename')) {
         $content = base64_decode(session('pdf_content'));
