@@ -10,7 +10,9 @@ new class extends Component {
     public function downloadPdf() {
         $this->type_form_token = session()->get('type_form_token');
         $feedbackUser = FeedbackUser::where('type_form', $this->type_form_token)->first();
-
+        if (!$feedbackUser) {
+            return redirect('/consenso-testimonianze');
+        }
         $feedbackUserArray = $feedbackUser->toArray();
         $pdf = Pdf::loadView('pdf.feedback-user', $feedbackUserArray);
         return response()->streamDownload(function () use ($pdf) {
@@ -21,6 +23,9 @@ new class extends Component {
     public function newForm() {
         $this->type_form_token = session()->get('type_form_token');
         $feedbackUser = FeedbackUser::where('type_form', $this->type_form_token)->first();
+        if (!$feedbackUser) {
+            return redirect('/consenso-testimonianze');
+        }
         $feedbackUser->delete();
         session()->forget(['type_form_token', 'form_status']);
         return redirect('/consenso-testimonianze');
